@@ -5,9 +5,9 @@ string(REPLACE " " "_" ProjectId ${ProjectId})
 project(${ProjectId} LANGUAGES C)
 
 # Force GCC 15(LinuxOS)
-# set(CMAKE_C_COMPILER "/opt/gcc-15/bin/gcc")
+set(CMAKE_C_COMPILER "/opt/gcc-15/bin/gcc")
 # Force GCC 15(macOS)
-set(CMAKE_C_COMPILER "/opt/homebrew/opt/gcc@15/bin/gcc-15")
+# set(CMAKE_C_COMPILER "/opt/homebrew/opt/gcc@15/bin/gcc-15")
 
 # Force Clang20(LinuxOS)
 # set(CMAKE_C_COMPILER "/usr/bin/clang-20")
