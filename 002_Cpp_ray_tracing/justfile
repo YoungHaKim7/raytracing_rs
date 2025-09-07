@@ -76,7 +76,8 @@ br:
 cr:
 	rm -rf build
 	mkdir -p build
-	cmake -D CMAKE_CXX_COMPILER={{clang_which}} -G Ninja .
+	cmake -D CMAKE_CXX_COMPILER={{clang_which}} \
+	-G Ninja .
 	ninja
 	mv build.ninja CMakeCache.txt CMakeFiles cmake_install.cmake target .ninja_deps .ninja_log build
 	./build/target/{{project_name}}
@@ -86,7 +87,8 @@ cr:
 cr:
 	rm -rf build
 	mkdir -p build
-	cmake -D CMAKE_CXX_COMPILER={{macos_gpp_which}} -G Ninja .
+	cmake -D CMAKE_CXX_COMPILER={{macos_gpp_which}} \
+	-G Ninja .
 	ninja
 	mv build.ninja CMakeCache.txt CMakeFiles cmake_install.cmake target .ninja_deps .ninja_log build
 	./build/target/{{project_name}}
@@ -96,11 +98,40 @@ cr:
 cro:
 	rm -rf build
 	mkdir -p build
-	cmake -D CMAKE_BUILD_TYPE=RelWithDebInfo -D CMAKE_CXX_COMPILER={{gpp_which}} -D CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT="-O2 -g" -G Ninja .
+	cmake -D CMAKE_BUILD_TYPE=RelWithDebInfo \
+	-D CMAKE_CXX_COMPILER={{gpp_which}} \
+	-D CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT="-O2 -g" \
+	-G Ninja .
 	ninja
 	mv build.ninja CMakeCache.txt CMakeFiles cmake_install.cmake target .ninja_deps .ninja_log build
 	./build/target/{{project_name}}
     
+# cmake compile(LinuxOS)
+[macos]
+cro:
+	rm -rf build
+	mkdir -p build
+	cmake -D CMAKE_BUILD_TYPE=RelWithDebInfo \
+	-D CMAKE_CXX_COMPILER={{macos_gpp_which}} \
+	-D CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT="-O2 -g" \
+	-G Ninja .
+	ninja
+	mv build.ninja CMakeCache.txt CMakeFiles cmake_install.cmake target .ninja_deps .ninja_log build
+	./build/target/{{project_name}}
+
+# cmake compile(LinuxOS)
+[macos]
+cro3:
+	rm -rf build
+	mkdir -p build
+	cmake -D CMAKE_BUILD_TYPE=Release \
+	      -D CMAKE_CXX_COMPILER={{macos_gpp_which}} \
+	      -D CMAKE_CXX_FLAGS_RELEASE_INIT="-O3 -DNDEBUG" \
+	      -G Ninja .
+	ninja
+	mv build.ninja CMakeCache.txt CMakeFiles cmake_install.cmake target .ninja_deps .ninja_log build
+	./build/target/{{project_name}}
+	
 # zig c++ compile
 zr:
 	rm -rf target
