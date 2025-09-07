@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
 
+#define WIDTH 256
+#define HEIGHT 256
+
 int main() {
     std::ofstream out("image.ppm");
     if (!out) {
@@ -8,15 +11,15 @@ int main() {
         return 1;
     }
 
-    int width = 256;
-    int height = 256;
+    // int width = 256;
+    // int height = 256;
 
     // Write PPM header
-    out << "P3\n" << width << " " << height << "\n255\n";
+    out << "P3\n" << WIDTH << " " << HEIGHT << "\n255\n";
 
     // Block sizes
-    int block_width = width / 3;   // 85 pixels wide
-    int block_height = height / 2; // 128 pixels tall
+    int block_width = WIDTH / 3;   // 85 pixels wide
+    int block_height = HEIGHT / 2; // 128 pixels tall
 
     // Define 6 colors: Red, Green, Blue, Yellow, White, Black
     int colors[6][3] = {
@@ -29,8 +32,8 @@ int main() {
     };
 
     // Generate pixel data
-    for (int j = 0; j < height; j++) {
-        for (int i = 0; i < width; i++) {
+    for (int j = 0; j < HEIGHT; j++) {
+        for (int i = 0; i < WIDTH; i++) {
             int block_row = j / block_height;  // 0 or 1
             int block_col = i / block_width;   // 0,1,2
             int block_index = block_row * 3 + block_col;
