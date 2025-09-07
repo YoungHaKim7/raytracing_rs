@@ -153,9 +153,16 @@ move:
 	mv CMakeCache.txt CMakeFiles cmake_install.cmake .ninja_deps .ninja_log build.ninja *.bc *.i *.s *.o *.ll a.out target
 
 # .clang-format init
+[linux]
 cl:
 	rm -rf .clang-format
 	{{clang_format}} -style=WebKit -dump-config > .clang-format
+
+# .clang-format init
+[macos]
+cl:
+	rm -rf .clang-format
+	{{macos_clang_format}} -style=WebKit -dump-config > .clang-format
 
 # .clang-format fmt
 [linux]
