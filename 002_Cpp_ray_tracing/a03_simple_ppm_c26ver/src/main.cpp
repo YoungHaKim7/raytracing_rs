@@ -23,12 +23,12 @@ auto generate_ppm(const std::string& filename) -> std::expected<void, std::strin
 
     // Define 6 colors: Red, Green, Blue, Yellow, White, Black
     int colors[6][3] = {
-        { 255, 0, 0 }, // Red
-        { 0, 255, 0 }, // Green
-        { 0, 0, 255 }, // Blue
-        { 255, 255, 0 }, // Yellow
-        { 255, 255, 255 }, // White
-        { 0, 0, 0 } // Black
+        { 255, 0, 0 },    // Red
+        { 0, 255, 0 },    // Green
+        { 0, 0, 255 },    // Blue
+        { 255, 255, 0 },  // Yellow
+        { 255, 255, 255 },// White
+        { 0, 0, 0 }        // Black
     };
 
     // Generate pixel data
