@@ -4,21 +4,21 @@ use std::{
     io::{BufWriter, Write},
 };
 
-fn main() {
-    let image_width = 256;
-    let image_height = 256;
+const IMAGE_WIDTH: u32 = 256;
+const IMAGE_HEIGHT: u32 = 256;
 
+fn main() {
     let mut file = BufWriter::new(File::create("image.ppm").unwrap());
-    writeln!(file, "P3\n{image_width} {image_height}\n255").unwrap();
+    writeln!(file, "P3\n{IMAGE_WIDTH} {IMAGE_HEIGHT}\n255").unwrap();
 
     // Parallelize over rows
-    let rows: Vec<String> = (0..image_height)
+    let rows: Vec<String> = (0..IMAGE_HEIGHT)
         .into_par_iter()
         .map(|j| {
             let mut row = String::new();
-            for i in 0..image_width {
-                let r = i as f64 / (image_width - 1) as f64;
-                let g = j as f64 / (image_height - 1) as f64;
+            for i in 0..IMAGE_WIDTH {
+                let r = i as f64 / (IMAGE_WIDTH - 1) as f64;
+                let g = j as f64 / (IMAGE_HEIGHT - 1) as f64;
                 let b = 0.0;
 
                 let ir = (255.999 * r) as usize;
