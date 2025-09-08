@@ -10,3 +10,5 @@
 
 # image변환 오픈소스
 - https://imagemagick.org/
+  - command
+    - https://imagemagick.org/script/convert.php
