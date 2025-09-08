@@ -7,3 +7,6 @@
 
 # Ray Tracing in One Weekend - in Rust (Part 2) David Beazley
 - https://youtu.be/j6zaAi4oYPc?si=Ez_iMe4XaX2D5a26
+
+# image변환 오픈소스
+- https://imagemagick.org/
