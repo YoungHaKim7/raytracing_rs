@@ -22,3 +22,9 @@ go install github.com/danielgatis/imgcat@latest
 - https://imagemagick.org/
   - command
     - https://imagemagick.org/script/convert.php
+
+- Install
+```
+sudo apt update
+sudo apt-get install imagemagick
+```
