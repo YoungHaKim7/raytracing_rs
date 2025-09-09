@@ -28,3 +28,6 @@ go install github.com/danielgatis/imgcat@latest
 sudo apt update
 sudo apt-get install imagemagick
 ```
+
+- 한국사람이 잘 정리함.
+  - https://blog.naver.com/aimldl/221734708408
